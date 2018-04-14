@@ -1,0 +1,19 @@
+<transactions>
+	<transaction>
+		<Service Area>	
+		<Account Description> </Account Description>
+		<Creditor> </Creditor>
+		<Merchant Location> </Merchant Location>
+		<Country Code> </Country Code>
+		<Merchant Number> </Merchant Number>
+		<MCC> </MCC>
+		<Journal Date> </Journal Date>
+		<Journal Reference> </Journal Reference>
+		<Transaction amount> </Transaction amount>
+		<Card Number> </Card Number>
+		<Card Name> </Card Name>
+		<Transaction serial number> </Transaction serial number>
+		<POS> </POS>
+		<POS MODE> </POS MODE>
+	</transaction>
+</transactions>
