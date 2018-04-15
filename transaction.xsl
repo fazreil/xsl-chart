@@ -112,38 +112,78 @@
             { y: <xsl:value-of select="format-number($utilitiesP,'0.00')"/>, label: "utilities", promo: "TNB: Rebate 40% for early payment \nRebate 10% with online payment \nSyabas: Free Mineral Water for all bill paid in full" }
           </xsl:when>
         </xsl:choose>
-          ]
-            }]
-            });
-            chart.render();
+        ]
+        }]
+        });
+        chart.render();
 
-            function onClick(e) {
-            alert(e.dataPoint.promo);
-            }
+        function onClick(e) {
+        alert(e.dataPoint.promo);
+        }
 
-            }
-          </script>
-        </head>
-        <body>
+        }
+      </script>
 
 
-          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-          <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </head>
+    <body>
 
-<!--     <br/><xsl:value-of select="count(//transactions/transaction)"/>
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' Automobile'])"/> Automobile
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' cloth stores'])"/> cloth stores
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' misc'])"/> misc
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' wholesale distributor'])"/> wholesale distributo
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' transportation'])"/> transportation
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' rental car'])"/> rental car
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' Retails Store'])"/> Retails Store
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' airlines'])"/> airlines
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' hotel'])"/> hotel
-    <br/><xsl:value-of select="count(//transactions/transaction/ServiceArea[text() = ' utilities'])"/> utilities -->
 
-  </body>
-</html>
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <p align="center">
+        TOTAL TRANSACTION AMOUNT
+      </p>
+      <table border="1" align="center">
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' Automobile']/TransactionAmount),'0.00') > 0">
+            <tr><td>Automobile </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' Automobile']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' Retails Store']/TransactionAmount),'0.00') > 0">
+        <tr><td>Retails Store  </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' Retails Store']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' cloth stores']/TransactionAmount),'0.00') > 0">
+        <tr>     <td>cloth stores </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' cloth stores']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' misc']/TransactionAmount),'0.00') > 0">
+        <tr>      <td>misc </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' misc']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' hotel']/TransactionAmount),'0.00') > 0">
+        <tr>      <td>hotel </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' hotel']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' utilities']/TransactionAmount),'0.00') > 0">
+        <tr>      <td>utilities </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' utilities']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' wholesale distributor']/TransactionAmount),'0.00') > 0">
+        <tr>      <td>wholesale distributor </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' wholesale distributor']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' airlines']/TransactionAmount),'0.00') > 0">
+        <tr>      <td>airlines </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' airlines']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="format-number(sum(//transactions/transaction[ServiceArea=' rental car']/TransactionAmount),'0.00') > 0">
+        <tr>      <td>rental car </td><td>$<xsl:value-of select="format-number(sum(//transactions/transaction[ServiceArea=' rental car']/TransactionAmount),'0.00')"/></td></tr>
+          </xsl:when>
+        </xsl:choose>
+      </table>
+
+    </body>
+  </html>
 </xsl:template>
 
 </xsl:stylesheet> 
